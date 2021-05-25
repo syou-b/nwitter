@@ -10,7 +10,7 @@ export default () => {
     };
     return (
         <>
-            <button onCLick={onLogOutClick}>Log Out</button>
+            <button onClick={onLogOutClick}>Log Out</button>
         </>
     );
  };
