@@ -9,10 +9,7 @@ function App() {
   useEffect (() => {
     authService.onAuthStateChanged((user) => {
       if(user){
-        setIsLoggedIn(true);
         setUserObj(user);
-      }else{
-        setIsLoggedIn(false);
       }
       setInit(true);
     });
