@@ -6,7 +6,6 @@ import React, {useEffect, useState} from "react";
      const [nweets, setNweets] = useState([]);
      
      useEffect(() => {
-        getNweets();
         dbService.collection("nweets").onSnapshot(snapshot => {
             const nweetArray = snapshot.docs.map(doc => ({
                 id: doc.id, 
