@@ -5,30 +5,38 @@ import Home from "routes/Home";
 import Profile from "routes/Profile";
 import Navigation from "components/Navigation";
 
-const AppRouter = ( {isLoggedIn, userObj} ) => {
-    
-    return(
-        <Router>
-            {isLoggedIn && <Navigation userObj={userObj} />}
-            <Switch>
-                {isLoggedIn ? (
-                <> 
-                    <Route exact path="/">
-                        <Home userObj={userObj} />
-                    </Route>
-                    <Route exact path="/profile">
-                        <Profile userObj={userObj} />
-                    </Route>
-                </>
-                 ) : (
-                <>
-                 <Route exact path="/">
-                     <Auth/>
-                </Route>
-                </>
-                )}
-            </Switch>
-        </Router>
-    );
+const AppRouter = ({ isLoggedIn, userObj }) => {
+	return (
+		<Router>
+			{isLoggedIn && <Navigation userObj={userObj} />}
+			<Switch>
+				{isLoggedIn ? (
+					<div
+						style={{
+							maxWidth: 890,
+							width: "100%",
+							margin: "0 auto",
+							marginTop: 80,
+							display: "flex",
+							justifyContent: "center",
+						}}
+					>
+						<Route exact path="/">
+							<Home userObj={userObj} />
+						</Route>
+						<Route exact path="/profile">
+							<Profile userObj={userObj} />
+						</Route>
+					</div>
+				) : (
+					<>
+						<Route exact path="/">
+							<Auth />
+						</Route>
+					</>
+				)}
+			</Switch>
+		</Router>
+	);
 };
 export default AppRouter;
